@@ -1,12 +1,5 @@
 # Summary of Fixes for Error Code 86420 on Real NDS Hardware and melonDS
 
-Created: 2026-05-04  
-Target: Real Nintendo DS hardware / melonDS  
-Target error: `86420`  
-Not covered: Other emulators, Wii, Dolphin, DeSmuME, etc.
-
----
-
 ## Conclusion
 
 Error code `86420` usually means that **a communication route cannot be established with the other player**.
