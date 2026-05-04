@@ -4,7 +4,7 @@
 
 Error code `86420` usually means that **a communication route cannot be established with the other player**.
 
-It tends to occur not during the server login itself, but when communication with another player is required, such as battles, trades, joining sessions, or friend connections.
+It tends to occur not during the server login itself, but when communication with another player is required, such as battles, joining sessions, or friend connections.
 
 The main causes are **NAT**, **blocked UDP communication**, **firewalls**, **CGNAT**, and **hotspot/tethering restrictions**.
 
@@ -20,20 +20,19 @@ According to Nintendo-related explanations, `86420` is treated as an error cause
 Server connection: May succeed
 Wi-Fi connection test: May succeed
 Friend list/login: May succeed
-Battle/trade/joining session: Fails
+Battles or joining sessions: Fails
 Result: 86420
 ```
 
 The important point is that **being able to communicate with the server** and **being able to communicate with another player** are different things.
 
-In Nintendo DS Wi-Fi communication, depending on the game or feature, some functions only require server-based communication. On the other hand, features such as battles, trades, and joining sessions may require a communication route similar to P2P with the other player.
+In Nintendo DS Wi-Fi communication, depending on the game or feature, some functions only require server-based communication. On the other hand, features such as battles and joining sessions may require a communication route similar to P2P with the other player.
 
 Because of this, the following symptoms can occur normally:
 
 ```text
-GTS works
 Rankings and some server features work
-However, direct battles or direct trades fail with 86420
+However, direct battles or direct matches fail with 86420
 ```
 
 In this case, looking only at DNS often does not solve the problem.
@@ -58,7 +57,7 @@ Internet
 
 For normal web browsing or video streaming, this usually does not cause problems because communication is started from the inside to the outside.
 
-However, for NDS battles, trades, and joining sessions, it may be necessary to receive returning UDP communication from the other side. Depending on the NAT type, the communication route may not be created.
+However, for NDS battles and joining sessions, it may be necessary to receive returning UDP communication from the other side. Depending on the NAT type, the communication route may not be created.
 
 When this happens, `86420` is likely to appear.
 
@@ -148,7 +147,7 @@ Can you enter the server?
   ├─ No → Check DNS / server settings / firmware settings
   └─ Yes
        ↓
-Do only battles, trades, or joining sessions fail?
+Do only battles or joining sessions fail?
   ├─ No → Another cause is possible
   └─ Yes
        ↓
@@ -238,7 +237,7 @@ UPnP IGD
 Automatic port opening
 ```
 
-After enabling it, reconnect the NDS and try a battle, trade, or joining session.
+After enabling it, reconnect the NDS and try a battle or join a session.
 
 If UPnP improves the issue, it is easier than manual port forwarding.
 
@@ -477,7 +476,7 @@ Because of this, hotspots commonly result in the following:
 ```text
 Wi-Fi connection test: Succeeds
 Server login: Succeeds
-Battle/trade/joining session: 86420
+Battles or joining sessions: 86420
 ```
 
 ---
@@ -503,6 +502,8 @@ However, if the hotspot side cannot do port forwarding, fundamental improvement 
 # For MPH
 
 In Metroid Prime Hunters, `86420` can be caused not only by your side, but also by the other player’s NAT.
+
+In MPH specifically, `86420` most commonly occurs during two situations: matchmaking for random games, and when attempting to join the host's lobby in friend or rival matches.
 
 In other words, even if your own settings are mostly correct, the connection can still fail if the other player is on Strict NAT, CGNAT, a hotspot, or a connection with UDP restrictions.
 
@@ -549,7 +550,7 @@ Changing only DNS often does not fix this.
 
 ---
 
-## GTS or Some Online Features Work, but Battles/Trades Fail
+## Some Online Features Work, but Battles/Joining Sessions Fail
 
 This is a very typical `86420` symptom.
 
@@ -701,7 +702,7 @@ The especially important points are:
 
 - NAT on either your side or the other player’s side can cause it
 - It can occur even if the connection test succeeds
-- GTS and similar features may work while only battles/trades fail
+- Some server-based features may work while only battles or joining sessions fail
 - On real NDS hardware, fixed IP, UPnP, DMZ, double-router checks, and CGNAT checks are important
 - On melonDS, Windows Firewall and PC-side fixed IP are also important
 - Hotspots/tethering are often difficult because of CGNAT and private IP effects
